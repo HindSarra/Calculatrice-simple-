@@ -1,14 +1,10 @@
 
 
-#memoire{
-  top:5px;
-  left:20px;
-  display: none;
-}
+ #memoire{
+  top:20px;
+} 
 #ecran{
 
 text-align: right;
 }
-div .col-3{
-width: 100%;
-}
+
