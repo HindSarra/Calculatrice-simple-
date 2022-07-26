@@ -34,13 +34,43 @@ if(parseFloat(touche)>= 0 || touche === "."){
  }
  else{
   switch(touche){
+    // touche C réinisialise tout
     case "C":
       affichage="";
       precedent=0;
       operation=null;
       ecranElt.innerText=0;
       break;
+    //claculer
+    case"+":
+    case"-":
+    case"*":
+    case"/":
+    //on calcule la valeur résultat de l'etat précédente
+      precedent =(precedent===0)? parseFloat(affichage):claculer(precedent, parseFloat(affichage),operation)
+      ecranElt.innerText=precedent;
+      operation=touche;
+      affichage="";
+    break;
+    case "=":
+      precedent=(precedent===0)? parseFloat(affichage):
   }
  }
 }
+/** Effectue le calcule
+ * 
+ * @param {number} nb1 
+ * @param {number} nb2 
+ * @param {string} operation 
+ * @retunrs number
+ *  
+ */
 
+function claculer (nb1, nb2, operation){
+nb1=parseFloat(nb1);
+nb2=parseFloat(nb2);
+if (operation ==="+") return nb1 + nb2;
+if (operation ==="-") return nb1 - nb2;
+if (operation ==="*") return nb1 * nb2;
+if (operation ==="/") return nb1 / nb2;
+}
